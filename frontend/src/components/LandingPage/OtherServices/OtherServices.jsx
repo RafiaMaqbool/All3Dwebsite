@@ -7,7 +7,10 @@ import img4 from '../../assets/room4.jpg';
 import img5 from '../../assets/room5.jpg';
 import img6 from '../../assets/bed.jpg';
 import img7 from '../../assets/mobile.jpg';
-import img8 from '../../assets/phone.png';
+import img8 from '../../assets/phonescreen2.jpg';
+import ProductSection from '../OfferedProducts/ProductSection';
+import { FlexContainer } from '../../styles/GlobalStyles';
+
 
 const Container = styled.div`
   width: 100%;
@@ -18,7 +21,7 @@ const Container = styled.div`
 const CarouselContainer = styled.div`
   position: relative;
   overflow: hidden;
-  padding: 60px 20px 20px 20px; /* Add extra top padding to move the carousel lower */
+  padding: 60px 20px 20px 20px;
 
   @media (max-width: 768px) {
     padding: 50px 0;
@@ -33,14 +36,14 @@ const CarouselTrack = styled.div`
 
 const CarouselItem = styled.div`
   flex: 0 0 auto;
-  width: 33.33%; /* Show three images on larger screens */
+  width: 33.33%;
   box-sizing: border-box;
   padding: 10px;
 
   @media (max-width: 768px) {
-    width: 100%; /* Show one image at a time on smaller screens */
+    width: 100%;
     display: flex;
-    justify-content: center; /* Center aligns the image */
+    justify-content: center;
   }
 `;
 
@@ -51,7 +54,7 @@ const Image = styled.img`
 
   @media (max-width: 768px) {
     width: 100%;
-    max-width: 80%; /* Reduce image size on smaller screens */
+    max-width: 80%;
   }
 `;
 
@@ -79,11 +82,9 @@ const Button = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  outline: none; /* Remove default outline */
-
-  /* Colored outline */
-  border: 2px solid #edc091; /* Replace #6c63ff with your desired color */
-  color: #edc091; /* Text color matches outline color */
+  outline: none;
+  border: 2px solid #edc091;
+  color: #edc091;
 
   &:hover {
     background-color: #edc091;
@@ -120,7 +121,7 @@ const Configurator = styled.div`
 const ConfiguratorImage = styled.img`
   max-width: 100%;
   height: auto;
-  margin-top: 20px; /* Adjust margin as needed */
+  margin-top: 20px;
 `;
 
 const SketchfabWrapper = styled.div`
@@ -128,13 +129,13 @@ const SketchfabWrapper = styled.div`
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  margin-top: 20px; /* Adjust margin as needed */
+  margin-top: 20px;
   padding: 30px;
-  height: 600px; /* Adjust the height as per your requirement */
+  height: 600px;
   width: 100%;
 
   @media (max-width: 768px) {
-    height: 400px; /* Adjust height for smaller screens if needed */
+    height: 400px;
     max-width: 90%;
   }
 `;
@@ -142,29 +143,6 @@ const SketchfabWrapper = styled.div`
 const SketchfabFrame = styled.iframe`
   width: 100%;
   height: 100%;
-`;
-
-const Grid = styled.div`
-  display: grid;
-  gap: 80px;
-  justify-content: center;
-  align-items: start;
-  padding: 60px 150px;
-`;
-
-const Row = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 90px;
-  justify-content: flex-start;
-  align-items: center;
-`;
-
-const Column = styled.div`
-  display: grid;
-  justify-items: flex-start;
-  align-items: center;
-  position: relative;
 `;
 
 const Carousel = () => {
@@ -233,26 +211,24 @@ const Carousel = () => {
           src="https://sketchfab.com/models/4831c2ce6a0044d9bee9eacefcc0f2bd/embed?autospin=1&autostart=1&camera=0&preload=1&ui_infos=0&ui_stop=0"
         ></SketchfabFrame>
       </SketchfabWrapper>
-      <Grid>
-        <Row>
-          <Column>
-            <Image src={img7} alt="Product Variant" />
-          </Column>
-          <Column>
-            <h3>ALL3D Store</h3>
-            <p>Buy and sell virtual products and spaces to design your lifestyles and showrooms.</p>
-          </Column>
-        </Row>
-        <Row>
-          <Column>
-            <h3>3D Scan Your Products & Spaces</h3>
-            <p>Use the latest depth sensing LIDAR technology on your iPhone to enable scanning of physical products and spaces.</p>
-          </Column>
-          <Column>
-            <Image src={img8} alt="Product Variant" />
-          </Column>
-        </Row>
-      </Grid>
+      <FlexContainer>
+      <ProductSection
+        title="Generate Social Media Content"
+        imagery="Use ALL3D library of products and spaces to create content for all your social media channels."
+        currentImage={img7}
+        imageFirst={true}
+        showDots={false}
+      />
+      <ProductSection
+        title="3D Scan Your Products & Spaces"
+        imagery="Use the latest depth sensing LIDAR technology on your iPhone to enable scanning of physical products and spaces"
+        currentImage={img8}
+        imageFirst={false}
+        showDots={false}
+      />
+      <video class="position-iphone-video" autoplay="" loop="" playsinline="">
+      <source src="https://d48f7equ64qjl.cloudfront.net/static_files/product_offerings/section7.mp4" type="video/mp4"></source></video>
+       </FlexContainer>
     </Container>
   );
 };
