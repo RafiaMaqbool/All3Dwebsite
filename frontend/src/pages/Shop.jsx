@@ -5,9 +5,6 @@ import OfferedProducts from '../components/LandingPage/OfferedProducts/OfferedPr
 import OtherServices from '../components/LandingPage/OtherServices/OtherServices'
 import Footer from '../components/footer/Footer'
 
-
-
-
 const Shop = () => {
   return (
     <div>
